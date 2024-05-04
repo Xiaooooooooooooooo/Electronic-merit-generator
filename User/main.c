@@ -3,11 +3,12 @@
 #include "UART.h"
 #include "NVIC.h"
 #include "Switch.h"
+#include "App.h"
 
 void GPIO_config()
 {
 	GPIO_InitTypeDef	GPIO_InitStructure;		//结构定义
-	GPIO_InitStructure.Pin  = GPIO_Pin_3;		//指定要初始化的IO,
+	GPIO_InitStructure.Pin  = GPIO_Pin_4;		//指定要初始化的IO,
 	GPIO_InitStructure.Mode = GPIO_PullUp;	//指定IO的输入或输出方式,GPIO_PullUp,GPIO_HighZ,GPIO_OUT_OD,GPIO_OUT_PP
 	GPIO_Inilize(GPIO_P5, &GPIO_InitStructure);//初始化
 }
@@ -39,27 +40,8 @@ void task0() _task_ 0
 {
 	sys_init();
 	
-	os_create_task(1);
-	os_create_task(2);
+	os_create_task(TASK_KEY);
+	os_create_task(TASK_BUZZER);
 	
 	os_delete_task(0);
-}
-
-void task1() _task_ 1
-{
-	while(1)
-	{
-		os_send_signal(2);
-		os_wait2(K_TMO, 100);
-	}
-}
-
-void task2() _task_ 2
-{
-	while(1)
-	{
-		os_wait1(K_SIG);
-		printf("Yes Indeed!\r\n");
-		P53 = !P53;
-	}
 }

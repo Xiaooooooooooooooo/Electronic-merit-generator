@@ -324,7 +324,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\User;.\Lib;.\Driver;.\Driver\OLED_SPI</IncludePath>
+              <IncludePath>.\User;.\Lib;.\Driver;.\Driver\OLED_SPI;.\App</IncludePath>
             </VariousControls>
           </C51>
           <Ax51>
@@ -430,6 +430,31 @@
               <FileName>oled.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Driver\OLED_SPI\oled.c</FilePath>
+            </File>
+            <File>
+              <FileName>Key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Driver\Key.c</FilePath>
+            </File>
+            <File>
+              <FileName>Buzzer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Driver\Buzzer.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>App</GroupName>
+          <Files>
+            <File>
+              <FileName>Key_app.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\App\Key_app.c</FilePath>
+            </File>
+            <File>
+              <FileName>Buzzer_app.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\App\Buzzer_app.c</FilePath>
             </File>
           </Files>
         </Group>
