@@ -49,18 +49,11 @@ void Buzzer_init()
     PWM_config();
 }
 
-u16 hz[] = {523, 587, 659, 698, 784, 880, 988, 1047};
+u16 hz[] = {440, 523, 587, 659, 698, 784, 880, 988, 1047};
 
 void Buzzer_play(u8 NOTE)
 {
-    if (NOTE == 0)
-    {
-        PWM_stop();
-    }
-    else
-    {
-        PWM_play(hz[NOTE - 1]);
-    }
+    PWM_play(hz[NOTE]);
 }
 
 void Buzzer_stop()

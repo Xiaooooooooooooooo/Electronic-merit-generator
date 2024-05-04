@@ -24,7 +24,7 @@ void is_key_down(u8 key)
 			printf("KEY1 down"); break;
 		case 2:
 			printf("KEY2 down");
-			is_buzzer_enable = !is_buzzer_enable;
+			os_send_signal(TASK_BUZZER);
 			break;
 		case 3:
 			printf("KEY3 down"); break;

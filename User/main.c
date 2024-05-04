@@ -36,7 +36,7 @@ void sys_init()
 	EA = 1;
 }
 
-void task0() _task_ 0
+void task_main() _task_ 0
 {
 	sys_init();
 	
