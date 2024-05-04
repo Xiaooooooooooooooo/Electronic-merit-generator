@@ -1,6 +1,7 @@
 #include "App.h"
 #include "Key.h"
 #include "GPIO.h"
+#include "EEPROM.h"
 
 void is_key_up(u8 key)
 {
