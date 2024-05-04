@@ -233,7 +233,7 @@
               <RCB>
                 <Type>0</Type>
                 <StartAddress>0x0</StartAddress>
-                <Size>0x10000</Size>
+                <Size>0xffff</Size>
               </RCB>
               <RXB>
                 <Type>0</Type>
@@ -324,7 +324,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\User;.\Lib;.\Driver</IncludePath>
+              <IncludePath>.\User;.\Lib;.\Driver;.\Driver\OLED_SPI</IncludePath>
             </VariousControls>
           </C51>
           <Ax51>
@@ -348,7 +348,7 @@
             <DataOverlaying>1</DataOverlaying>
             <OverlayString></OverlayString>
             <MiscControls></MiscControls>
-            <DisableWarningNumbers></DisableWarningNumbers>
+            <DisableWarningNumbers>15,16</DisableWarningNumbers>
             <LinkerCmdFile></LinkerCmdFile>
             <Assign></Assign>
             <ReserveString></ReserveString>
@@ -373,16 +373,6 @@
         </Target51>
       </TargetOption>
       <Groups>
-        <Group>
-          <GroupName>User</GroupName>
-          <Files>
-            <File>
-              <FileName>main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\User\main.c</FilePath>
-            </File>
-          </Files>
-        </Group>
         <Group>
           <GroupName>OS</GroupName>
           <Files>
@@ -416,10 +406,42 @@
               <FileType>1</FileType>
               <FilePath>.\Lib\UART_Isr.c</FilePath>
             </File>
+            <File>
+              <FileName>ADC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Lib\ADC.c</FilePath>
+            </File>
+            <File>
+              <FileName>ADC_Isr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Lib\ADC_Isr.c</FilePath>
+            </File>
+            <File>
+              <FileName>STC8H_PWM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Lib\STC8H_PWM.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>Driver</GroupName>
+          <Files>
+            <File>
+              <FileName>oled.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Driver\OLED_SPI\oled.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>User</GroupName>
+          <Files>
+            <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\main.c</FilePath>
+            </File>
+          </Files>
         </Group>
       </Groups>
     </Target>
