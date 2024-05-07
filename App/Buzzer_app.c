@@ -73,13 +73,18 @@ u8 xdata gap[] =
 	2,2,12
 };
 
+u8 is_Buzzer_play = 0;
+
 void task_buzzer() _task_ TASK_BUZZER
 {
 	u8 i;
-	Buzzer_init();
 	while(1)
 	{
-		os_wait1(K_SIG);
+		if(!is_Buzzer_play)
+		{
+			os_wait2(K_TMO, 2);
+			continue;
+		}
 		
 		for(i = 0; i < sizeof(notes); i++)
 		{

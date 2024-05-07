@@ -325,19 +325,16 @@ void OLED_Display_string_5x7(u8 x,u8 y,u8 *text)
 //x,y :起点坐标
 //num1：要显示的小数
 //len :数字的位数
-void OLED_ShowNum(u8 x,u8 y,float num1,u8 len)
+void OLED_ShowNum(u8 x,u8 y,u16 num,u8 len)
 {
 	u8 i;
-	u32 t,num;
-	x=x+len*8+8;//要显示的小数最低位的横坐标
-	num=num1*100;//将小数左移两位并转化为整数
-	OLED_Display_GB2312_string(x-24,y,".");//显示小数点
+	u16 t;
+	x=x+len*8;//要显示的小数最低位的横坐标
 	for(i=0;i<len;i++)
 	{
 		t=num%10;//取个位数的数值
 		num=num/10;//将整数右移一位
 		x-=8;
-		if(i==2){x-=8;}//当显示出来两个小数之后，空出小数点的位置
 		switch(t)
 		{
 			case 0 :OLED_Display_GB2312_string(x,y,"0");break;

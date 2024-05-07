@@ -43,6 +43,6 @@ u8 Get_data_from_ROM(void);
 void OLED_get_data_from_ROM(u8 addrHigh,u8 addrMid,u8 addrLow,u8 *pbuff,u8 DataLen);
 void OLED_Display_GB2312_string(u8 x,u8 y,u8 *text);
 void OLED_Display_string_5x7(u8 x,u8 y,u8 *text);
-void OLED_ShowNum(u8 x,u8 y,float num,u8 len);
+void OLED_ShowNum(u8 x,u8 y,u16 num,u8 len);
 void OLED_Init(void);
 #endif

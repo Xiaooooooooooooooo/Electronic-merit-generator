@@ -9,7 +9,7 @@ void GPIO_config()
 {
 	GPIO_InitTypeDef	GPIO_InitStructure;		//结构定义
 	GPIO_InitStructure.Pin  = GPIO_Pin_4;		//指定要初始化的IO,
-	GPIO_InitStructure.Mode = GPIO_PullUp;	//指定IO的输入或输出方式,GPIO_PullUp,GPIO_HighZ,GPIO_OUT_OD,GPIO_OUT_PP
+	GPIO_InitStructure.Mode = GPIO_OUT_PP;	//指定IO的输入或输出方式,GPIO_PullUp,GPIO_HighZ,GPIO_OUT_OD,GPIO_OUT_PP
 	GPIO_Inilize(GPIO_P5, &GPIO_InitStructure);//初始化
 }
 
@@ -33,6 +33,7 @@ void sys_init()
 	EAXSFR();
 	GPIO_config();
 	UART_config();
+
 	EA = 1;
 }
 
@@ -42,6 +43,9 @@ void task_main() _task_ 0
 	
 	os_create_task(TASK_KEY);
 	os_create_task(TASK_BUZZER);
+	os_create_task(TASK_OLED);
+	os_create_task(TASK_BATTERY);
+	os_create_task(TASK_SERVO);
 	
 	os_delete_task(0);
 }

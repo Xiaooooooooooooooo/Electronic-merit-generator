@@ -446,6 +446,16 @@
               <FileType>1</FileType>
               <FilePath>.\Driver\Buzzer.c</FilePath>
             </File>
+            <File>
+              <FileName>Battery.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Driver\Battery.c</FilePath>
+            </File>
+            <File>
+              <FileName>Servo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Driver\Servo.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -460,6 +470,21 @@
               <FileName>Buzzer_app.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\App\Buzzer_app.c</FilePath>
+            </File>
+            <File>
+              <FileName>OLED_app.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\App\OLED_app.c</FilePath>
+            </File>
+            <File>
+              <FileName>Battery_app.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\App\Battery_app.c</FilePath>
+            </File>
+            <File>
+              <FileName>Servo_app.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\App\Servo_app.c</FilePath>
             </File>
           </Files>
         </Group>
