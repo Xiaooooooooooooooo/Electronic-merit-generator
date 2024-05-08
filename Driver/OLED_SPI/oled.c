@@ -325,7 +325,7 @@ void OLED_Display_string_5x7(u8 x,u8 y,u8 *text)
 //x,y :起点坐标
 //num：要显示的数
 //len :数字的位数
-void OLED_ShowNum(u8 x,u8 y,u16 num,u8 len)
+void OLED_ShowNum(u8 x,u8 y,u32 num,u8 len)
 {
 	u8 i;
 	u8 t;

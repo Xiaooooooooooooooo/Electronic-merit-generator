@@ -42,9 +42,10 @@ void is_key_down(u8 key)
 			break;
 		case 3:
 //			printf("KEY3 down");
-			EEPROM_temp[0] = total % 256; EEPROM_temp[1] = total / 256;
+			EEPROM_temp[0] = total % 256; EEPROM_temp[1] = (total % (65536UL)) / 256;
+			EEPROM_temp[2] = (total % (16777216UL)) / (65536UL); EEPROM_temp[3] = total / (16777216UL);
 			EEPROM_SectorErase(EEPROM_addr_sector);
-			EEPROM_write_n(EEPROM_addr_sector, EEPROM_temp, 2);
+			EEPROM_write_n(EEPROM_addr_sector, EEPROM_temp, 4);
 			break;
 		default: break;
 	}
