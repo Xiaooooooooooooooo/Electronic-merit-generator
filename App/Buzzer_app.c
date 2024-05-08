@@ -94,7 +94,7 @@ void task_buzzer() _task_ TASK_BUZZER
 		os_wait2(K_TMO, gap[i] * 10);
 		
 		Buzzer_stop();
-		os_wait2(K_TMO, 3);
+		os_wait2(K_TMO, 2);
 		
 		i++;
 	}

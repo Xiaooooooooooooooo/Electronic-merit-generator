@@ -10,14 +10,16 @@ void is_key_up(u8 key)
 	switch(key)
 	{
 		case 1:
-			printf("KEY1 up");
+//			printf("KEY1 up");
+			LED = 0;
 			if(!is_Servo_aoto) Servo_run(45);
-			P54 = 0;
 			break;
 		case 2:
-			printf("KEY2 up"); break;
+//			printf("KEY2 up");
+			break;
 		case 3:
-			printf("KEY3 up"); break;
+//			printf("KEY3 up");
+			break;
 		default: break;
 	}
 }
@@ -27,19 +29,19 @@ void is_key_down(u8 key)
 	switch(key)
 	{
 		case 1:
-			printf("KEY1 down"); 
-			P54 = 1;
+//			printf("KEY1 down");
+			LED = 1;
 			if(!is_Servo_aoto) Servo_run(135);
 			total++; subtotal++;
 			os_send_signal(TASK_OLED);
 			break;
 		case 2:
-			printf("KEY2 down");
+//			printf("KEY2 down");
 			is_Servo_aoto = !is_Servo_aoto;
 			is_Buzzer_play = !is_Buzzer_play;
 			break;
 		case 3:
-			printf("KEY3 down"); 
+//			printf("KEY3 down");
 			EEPROM_temp[0] = total % 256; EEPROM_temp[1] = total / 256;
 			EEPROM_SectorErase(EEPROM_addr_sector);
 			EEPROM_write_n(EEPROM_addr_sector, EEPROM_temp, 2);

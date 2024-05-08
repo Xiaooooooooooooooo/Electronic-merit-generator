@@ -9,6 +9,8 @@
 #define TASK_BATTERY 4
 #define TASK_SERVO 5
 
+#define LED P54
+
 extern u8 is_Servo_aoto;
 extern u8 is_Buzzer_play;
 extern u16 electric_quantity;

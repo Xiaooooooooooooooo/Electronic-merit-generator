@@ -20,6 +20,8 @@ void task_oled() _task_ TASK_OLED
 	
 	total = EEPROM_temp[0] + EEPROM_temp[1] * 256;
 	
+	if(total == 0xffff) total = 0;
+	
 	while(1)
 	{
 		OLED_Display_GB2312_string(0, 0, "S电子功德生成器S");
@@ -29,9 +31,9 @@ void task_oled() _task_ TASK_OLED
 		OLED_ShowNum(88, 4, subtotal, 5);
 		OLED_ShowNum(0, 6, electric_quantity, 2);
 		OLED_Display_GB2312_string(16, 6, "%");
-		OLED_Display_GB2312_string(80, 6, "功德+1");
-		os_wait2(K_TMO, 80);
 		OLED_Display_GB2312_string(80, 6, "      ");
 		os_wait1(K_SIG);
+		OLED_Display_GB2312_string(80, 6, "功德+1");
+		os_wait2(K_TMO, 70);
 	}
 }
