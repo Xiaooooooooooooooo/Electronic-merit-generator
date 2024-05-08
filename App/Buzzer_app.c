@@ -77,23 +77,25 @@ u8 is_Buzzer_play = 0;
 
 void task_buzzer() _task_ TASK_BUZZER
 {
-	u8 i;
+	u16 i = 0;
 	while(1)
 	{
 		if(!is_Buzzer_play)
 		{
+			i = 0;
 			os_wait2(K_TMO, 2);
 			continue;
 		}
 		
-		for(i = 0; i < sizeof(notes); i++)
-		{
-			Buzzer_play(notes[i]);
-			os_wait2(K_TMO, gap[i] * 20);
-			os_wait2(K_TMO, gap[i] * 10);
-			Buzzer_stop();
-			os_wait2(K_TMO, 4);
-		}
-		os_wait2(K_TMO, 2);
+		i %= sizeof(notes);
+		
+		Buzzer_play(notes[i]);
+		os_wait2(K_TMO, gap[i] * 20);
+		os_wait2(K_TMO, gap[i] * 10);
+		
+		Buzzer_stop();
+		os_wait2(K_TMO, 3);
+		
+		i++;
 	}
 }

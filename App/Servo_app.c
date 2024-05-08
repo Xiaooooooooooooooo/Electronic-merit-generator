@@ -10,13 +10,6 @@ void task_servo() _task_ TASK_SERVO
 	{
 		if(!is_Servo_aoto)
 		{
-			if(KEY1)
-			{
-				Servo_run(45);
-			}else
-			{
-				Servo_run(135);
-			}
 			os_wait2(K_TMO, 2);
 			continue;
 		}
@@ -24,6 +17,8 @@ void task_servo() _task_ TASK_SERVO
 		Servo_run(45);
 		os_wait2(K_TMO, 100);
 		Servo_run(135);
+		total++; subtotal++;
+		os_send_signal(TASK_OLED);
 		os_wait2(K_TMO, 100);
 	}
 }

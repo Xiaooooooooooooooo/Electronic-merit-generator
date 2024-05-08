@@ -323,17 +323,17 @@ void OLED_Display_string_5x7(u8 x,u8 y,u8 *text)
 
 //显示2个数字
 //x,y :起点坐标
-//num1：要显示的小数
+//num：要显示的数
 //len :数字的位数
 void OLED_ShowNum(u8 x,u8 y,u16 num,u8 len)
 {
 	u8 i;
-	u16 t;
-	x=x+len*8;//要显示的小数最低位的横坐标
+	u8 t;
+	x=x+len*8;//要显示的数最低位的横坐标
 	for(i=0;i<len;i++)
 	{
 		t=num%10;//取个位数的数值
-		num=num/10;//将整数右移一位
+		num=num/10;//右移一位
 		x-=8;
 		switch(t)
 		{
