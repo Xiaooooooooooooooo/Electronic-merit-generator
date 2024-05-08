@@ -12,6 +12,7 @@ void is_key_up(u8 key)
 //			printf("KEY1 up");
 			LED = 0;
 			if(!is_Servo_aoto) Servo_run(45);
+			if(!is_Buzzer_play) Buzzer_stop();
 			break;
 		case 2:
 //			printf("KEY2 up");
@@ -31,6 +32,7 @@ void is_key_down(u8 key)
 //			printf("KEY1 down");
 			LED = 1;
 			if(!is_Servo_aoto) Servo_run(135);
+			if(!is_Buzzer_play) Buzzer_play(1);
 			total++; subtotal++;
 			os_send_signal(TASK_OLED);
 			break;
@@ -55,6 +57,7 @@ void task_key() _task_ TASK_KEY
 	Key_init();
 	Servo_init();
 	Buzzer_init();
+	LED = 0;
 	while(1)
 	{
 		Key_scan();
