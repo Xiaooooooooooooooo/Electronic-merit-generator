@@ -13,7 +13,7 @@
 
 extern u8 is_Servo_aoto;
 extern u8 is_Buzzer_play;
-extern u16 electric_quantity;
+extern u8 electric_quantity;
 extern u32 total;
 extern u32 subtotal;
 extern u16 EEPROM_addr_sector;

@@ -1,6 +1,5 @@
 #include "App.h"
 #include "Key.h"
-#include "GPIO.h"
 #include "Servo.h"
 #include "Buzzer.h"
 #include "EEPROM.h"

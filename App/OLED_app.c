@@ -3,7 +3,7 @@
 #include "bmp.h"
 #include "EEPROM.h"
 
-u16 electric_quantity = 0;
+u8 electric_quantity = 0;
 u32 total = 0;
 u32 subtotal = 0;
 u16 EEPROM_addr_sector = 0x0000;
@@ -32,14 +32,13 @@ void task_oled() _task_ TASK_OLED
 			continue;
 		}
 		
-		OLED_Clear();
-		
 		if(total >= 999999)
 		{
 			total = 0;
 			subtotal = 0;
 		}
 		
+		OLED_Clear();
 		OLED_Display_GB2312_string(8, 0, "电子功德生成器");
 		OLED_Display_GB2312_string(0, 2, "累计功德：");
 		OLED_Display_GB2312_string(0, 4, "本次功德：");
