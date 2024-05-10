@@ -75,11 +75,21 @@ u8 xdata gap[] =
 
 u8 is_Buzzer_play = 0;
 
-void task_buzzer() _task_ TASK_BUZZER
+void task_buzzer1() _task_ TASK_BUZZER1
 {
 	u16 i = 0;
 	while(1)
 	{
+		if(total == 1000000)
+		{
+			is_Servo_aoto = 0;
+			is_Buzzer_play = 0;
+			os_create_task(TASK_BUZZER2);
+			os_wait1(K_SIG);
+			os_delete_task(TASK_BUZZER2);
+			Buzzer_stop();
+		}
+		
 		if(!is_Buzzer_play)
 		{
 			i = 0;
@@ -87,6 +97,24 @@ void task_buzzer() _task_ TASK_BUZZER
 			continue;
 		}
 		
+		i %= sizeof(notes);
+		
+		Buzzer_play(notes[i]);
+		os_wait2(K_TMO, gap[i] * 20);
+		os_wait2(K_TMO, gap[i] * 10);
+		
+		Buzzer_stop();
+		os_wait2(K_TMO, 2);
+		
+		i++;
+	}
+}
+
+void task_buzzer2() _task_ TASK_BUZZER2
+{
+	u16 i = 0;
+	while(1)
+	{
 		i %= sizeof(notes);
 		
 		Buzzer_play(notes[i]);

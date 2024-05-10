@@ -22,7 +22,7 @@ void task_oled() _task_ TASK_OLED
 	
 	while(1)
 	{
-		if(total == 999999)
+		if(total == 1000000)
 		{
 			OLED_Display_GB2312_string(8, 0, "电子功德生成器");
 			OLED_Display_GB2312_string(0, 2, "!恭喜您本次轮回!");
@@ -32,7 +32,7 @@ void task_oled() _task_ TASK_OLED
 			continue;
 		}
 		
-		if(total >= 999999)
+		if(total > 999999)
 		{
 			total = 0;
 			subtotal = 0;

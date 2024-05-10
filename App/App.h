@@ -4,10 +4,11 @@
 #include "Config.h"
 
 #define TASK_KEY 1
-#define TASK_BUZZER 2
+#define TASK_BUZZER1 2
 #define TASK_OLED 3
 #define TASK_BATTERY 4
 #define TASK_SERVO 5
+#define TASK_BUZZER2 6
 
 #define LED P54
 

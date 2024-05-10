@@ -33,11 +33,13 @@ void is_key_down(u8 key)
 			LED = 1;
 			if(!is_Servo_aoto) Servo_run(135);
 			if(!is_Buzzer_play) Buzzer_play(1);
+			if(total == 1000000) os_send_signal(TASK_BUZZER1);
 			total++; subtotal++;
 			os_send_signal(TASK_OLED);
 			break;
 		case 2:
 //			printf("KEY2 down");
+			if(total == 1000000) os_send_signal(TASK_BUZZER1);
 			is_Servo_aoto = !is_Servo_aoto;
 			is_Buzzer_play = !is_Buzzer_play;
 			break;

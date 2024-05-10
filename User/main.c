@@ -42,7 +42,7 @@ void task_main() _task_ 0
 	sys_init();
 	
 	os_create_task(TASK_KEY);
-	os_create_task(TASK_BUZZER);
+	os_create_task(TASK_BUZZER1);
 	os_create_task(TASK_OLED);
 	os_create_task(TASK_BATTERY);
 	os_create_task(TASK_SERVO);
