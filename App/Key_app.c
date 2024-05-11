@@ -31,9 +31,10 @@ void is_key_down(u8 key)
 		case 1:
 //			printf("KEY1 down");
 			LED = 1;
-			if(!is_Servo_aoto) Servo_run(135);
-			if(!is_Buzzer_play) Buzzer_play(1);
+			if(is_Servo_aoto && is_Buzzer_play) break;
 			if(total == 1000000) os_send_signal(TASK_BUZZER1);
+			Servo_run(135);
+			Buzzer_play(1);
 			total++; subtotal++;
 			os_send_signal(TASK_OLED);
 			break;
@@ -45,8 +46,10 @@ void is_key_down(u8 key)
 			break;
 		case 3:
 //			printf("KEY3 down");
-			EEPROM_temp[0] = total % 256; EEPROM_temp[1] = (total % (65536UL)) / 256;
-			EEPROM_temp[2] = (total % (16777216UL)) / (65536UL); EEPROM_temp[3] = total / (16777216UL);
+			EEPROM_temp[0] = total % 256;
+			EEPROM_temp[1] = (total % (65536UL)) / 256;
+			EEPROM_temp[2] = (total % (16777216UL)) / (65536UL);
+			EEPROM_temp[3] = total / (16777216UL);
 			EEPROM_SectorErase(EEPROM_addr_sector);
 			EEPROM_write_n(EEPROM_addr_sector, EEPROM_temp, 4);
 			break;
